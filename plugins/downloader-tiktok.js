@@ -5,13 +5,13 @@ let handler = async (m, { conn, args, usedprefix, command }) => {
     const url = video.no_watermark_raw || video.no_watermark || video.no_watermark_hd || video.with_watermark 
     if (!url) throw 'can\'t download video!'
     conn.sendFile(m.chat, url, 'tiktok.mp4', `
-🔗 *url:* ${url}
-🧏 *nickname:* ${nickname}${description ? `🖹 *description:* ${description}` : ''}
+*Nickname:* ${nickname}
+*Description:* ${description}
 `.trim(), m)
 }
 handler.help = ['tiktok'].map(v => v + ' <url>')
 handler.tags = ['downloader']
 
-handler.command = /^(tik(tok)?(dl)?)$/i
+handler.command = /^(tiktok|tt|tiktoknowm)$/i
 
 export default handler 
