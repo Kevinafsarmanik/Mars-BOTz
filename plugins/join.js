@@ -4,7 +4,7 @@ let handler = async (m, { conn, text, isOwner }) => {
     let [_, code, expired] = text.match(linkRegex) || []
     if (!code) throw 'Link invalid'
     let res = await conn.groupAcceptInvite(code)
-    m.reply(`Berhasil join grup ${res}${expired ? ` selama ${expired} hari` : ''}`)
+    m.reply(`Berhasil join grup ${res}`).then(() => {
         var jumlahHari = 86400000 * 0.5
         var now = new Date() * 1
         if (now < global.db.data.chats[res].expired) global.db.data.chats[res].expired += jumlahHari
