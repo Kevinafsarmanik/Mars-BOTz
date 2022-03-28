@@ -6,9 +6,15 @@ let handler = async (m, { conn, text, isOwner }) => {
     let res = await conn.groupAcceptInvite(code)
     expired = Math.floor(Math.min(999, Math.max(1, isOwner ? isNumber(expired) ? parseInt(expired) : 0 : 3)))
     m.reply(`Berhasil join grup ${res}${expired ? ` selama ${expired} hari` : ''}`)
-    let chats = global.db.data.chats[res]
-    if (!chats) chats = global.db.data.chats[res] = {}
-    if (expired) chats.expired = +new Date() + expired * 1000 * 60 * 60 * 24
+        var jumlahHari = 86400000 * 0.5
+        var now = new Date() * 1
+        if (now < global.db.data.chats[res].expired) global.db.data.chats[res].expired += jumlahHari
+        else global.db.data.chats[res].expired = now + jumlahHari
+    })
+    await conn.sendButton(res.gid, `
+*Mars BOTz* adalah bot whatsapp yang dibangun dengan Nodejs, *Mars BOTz* diundang oleh *RHns*
+    
+ketik *${usedPrefix}menu* untuk melihat daftar perintah`.trim(), wm, ['Menu', `${usedPrefix}menu`], m)
 }
 handler.help = ['join <chat.whatsapp.com>']
 handler.command = /^join$/i
