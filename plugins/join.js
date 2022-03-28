@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, isOwner, usedPrefix }) => {
         if (now < global.db.data.chats[res].expired) global.db.data.chats[res].expired += jumlahHari
         else global.db.data.chats[res].expired = now + jumlahHari
     })
-    await conn.sendButton(res.gid, `
+    await conn.sendButton(res, `
 *Mars BOTz* adalah bot whatsapp yang dibangun dengan Nodejs, *Mars BOTz* diundang oleh *RHns*
     
 ketik *${usedPrefix}menu* untuk melihat daftar perintah`.trim(), wm, ['Menu', `${usedPrefix}menu`], m)
