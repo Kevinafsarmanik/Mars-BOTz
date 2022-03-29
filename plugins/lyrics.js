@@ -4,6 +4,8 @@ let handler = async (m, { text }) => {
     title: text
   }))
   if (!res.ok) throw eror
+  let json = await res.json()
+  if (!json.thumbnail.genius) throw json
   m.reply(`
 Lirik: *${json.title}*
 Author: _${json.author}_
