@@ -1,22 +1,20 @@
-import { lyrics, lyricsv2 } from '@bochilteam/scraper'
+import fetch from 'node-fetch'
+let handler = async (m, { text }) => {
+  let res = await fetch(global.API('https://some-random-api.ml', '/lyrics', {
+    title: text
+  }))
+  if (!res.ok) throw eror
+  m.reply(`
+Lirik: *${json.title}*
+Author: _${json.author}_
 
-let handler = async (m, { conn, text, usedPrefix, command }) => {
-    let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : ''
-    if (!teks) throw `Use example ${usedPrefix}${command} hallo`
-    const result = await lyricsv2(teks).catch(async _ => await lyrics(teks))
-    m.reply(`
-Lyrics *${result.title}*
-Author ${result.author}
+${json.lyrics}
 
 
-${result.lyrics}
-
-
-Url ${result.link}
-`.trim())
+${json.links.genius}
+`, m)
 }
-
-handler.help = ['lirik'].map(v => v + ' <Apa>')
+handler.help = ['lirik'].map(v => v + ' <query>')
 handler.tags = ['internet']
 handler.command = /^(lirik|lyrics|lyric)$/i
 
