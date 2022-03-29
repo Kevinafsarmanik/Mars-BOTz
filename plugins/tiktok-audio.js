@@ -14,9 +14,6 @@ let audio = await toAudio(f, 'mp4')
 *Description:* ${description}
 `.trim(), m, null,  {mimetype:'audio/mp4'})
 }
-handler.help = ['tiktok'].map(v => v + ' <url>')
-handler.tags = ['downloader']
-
 handler.command = /^(tiktokmusik|ttmusik)$/i
 
 export default handler
