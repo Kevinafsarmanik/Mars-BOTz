@@ -70,5 +70,5 @@ handler.tags = ['info', 'tools']
 handler.command = /^(ping|speed|info)$/i
 export default handler
 
-const more = String.fromCharCode(1)
-const readMore = more.repeat(1)
+const more = String.fromCharCode(8206)
+const readMore = more.repeat(4001)
