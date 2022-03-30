@@ -191,7 +191,7 @@ export async function handler(chatUpdate) {
 
                     money: 0,
                     health: 100,
-                    limit: 100,
+                    limit: 10,
                     potion: 10,
                     trash: 0,
                     wood: 0,
@@ -487,7 +487,7 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-                    this.reply(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, m)
+                    this.sendButton(m.chat, `Limit anda habis, silahkan beli melalui *${usedPrefix}buy*`, wm, ['Buy', '.buy'], m)
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
@@ -708,7 +708,7 @@ global.dfail = (type, m, conn) => {
         unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*',
         restrict: 'Fitur ini di *disable*!'
     }[type]
-    if (msg) return conn.sendButton(m.chat, msg.trim(), wm, null, [[`Menu`, `#menu`]], m)
+    if (msg) return conn.sendButton(m.chat, msg.trim(), wm, [[`Back To Menu`, `#menu`]], m)
 }
 
 let file = global.__filename(import.meta.url, true)
