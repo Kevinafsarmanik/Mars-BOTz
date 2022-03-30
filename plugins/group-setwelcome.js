@@ -1,4 +1,4 @@
-let handler = async (m, { conn, text, isOwner, usedPrefix, command }) => {
+let handler = async (m, { conn, text, isOwner, isAdmin, usedPrefix, command }) => {
   if (text) {
     if (!(isAdmin || isOwner)) return dfail('admin', m, conn)
     db.data.chats[m.chat].sWelcome = text
