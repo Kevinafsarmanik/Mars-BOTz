@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn, usedPrefix, command }) => {
     let url = global.API('xteam', '/randomimage/meme', {}, 'APIKEY')
     await conn.sendButton(m.chat, 'Nih banh', wm, url, [['Next', `${usedPrefix+command}`]], m, 0, { thumbnail: Buffer.alloc(url) })
 }
