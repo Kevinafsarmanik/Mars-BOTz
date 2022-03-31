@@ -1,5 +1,5 @@
 import fetch from 'node-fetch'
-import split from '|'
+let split = '|'
 
 let handler = async (m, { conn, args: [effect], text: txt }) => {
   let { effects } = await (await (fetch(API('xteam', '/textpro')))).json()
