@@ -1,12 +1,12 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, command }) => {
-    let res = (`https://api.lolhuman.xyz/api/random/cecan?apikey=rey2k22`)
-    await conn.sendButton(m.chat, 'Cewek Cantik', wm, res, [
-    ['Next', `${usedPrefix+command}`]
-], m)
+let res = global.API('lolhuman', '/api/random/cecan', {}, 'apikey')
+ await conn.sendButton(m.chat, 'Nih banh', wm, res, [
+ ['Next', `${usedPrefix+command}`]
+], m, 0, { thumbnail: await(await fetch(res)).buffer() })
 }
 handler.help = ['cecan']
-handler.tags = ['info']
+handler.tags = ['random']
 handler.command = /^(cecan)$/i
 
 export default handler
