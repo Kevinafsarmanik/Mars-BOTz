@@ -1,7 +1,9 @@
 import fetch from 'node-fetch'
 let handler = async (m, { conn, usedPrefix, command }) => {
-    let url = global.API('xteam', '/randomimage/meme', {}, 'APIKEY')
-    await conn.sendButton(m.chat, 'Nih banh', wm, url, [['Next', `${usedPrefix+command}`]], m, 0, { thumbnail: Buffer.alloc(url) })
+let url = global.API('xteam', '/randomimage/darkjoke', {}, 'APIKEY')
+  await conn.sendButton(m.chat, 'Nih banh', wm, url, [
+  ['Next', `${usedPrefix+command}`]
+], m, 0, { thumbnail: await(await fetch(url)).buffer() })
 }
 handler.help = ['darkjoke']
 handler.tags = ['random']
