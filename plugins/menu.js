@@ -22,6 +22,9 @@ let tags = {
 }
 const defaultMenu = {
   before: `
+Penggunaan Mars BOTz :
+*🅛 : Memakai Limit*
+*🅟 : Khusus Premium*
 %readmore`.trimStart(),
   header: '┌ 「 *%category* 」',
   body: '│≻ %cmd %islimit %isPremium',
@@ -98,8 +101,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '' : '')
-                .replace(/%isPremium/g, menu.premium ? '' : '')
+                .replace(/%islimit/g, menu.limit ? '🅛' : '')
+                .replace(/%isPremium/g, menu.premium ? '🅟' : '')
                 .trim()
             }).join('\n')
           }),
@@ -126,7 +129,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './src/avatar_contact.png')
-    conn.sendHydrated(m.chat, text.trim(), wm, fla + 'nih menunya', instagram, 'Instagram', null, null, [
+    conn.sendHydrated(m.chat, text.trim(), wm, '99999999999999999999', instagram, 'Instagram', null, null, [
       ['Donate', '.donasi'],
       [null, null],
       [null, null]
