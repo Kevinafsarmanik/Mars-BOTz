@@ -22,9 +22,6 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-Penggunaan Mars BOTz :
-*🅛 : Memakai Limit*
-*🅟 : Khusus Premium*
 %readmore`.trimStart(),
   header: '┌ 「 *%category* 」',
   body: '│≻ %cmd %islimit %isPremium',
@@ -101,8 +98,8 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '🅛' : '')
-                .replace(/%isPremium/g, menu.premium ? '🅟' : '')
+                .replace(/%islimit/g, menu.limit ? '' : '')
+                .replace(/%isPremium/g, menu.premium ? '' : '')
                 .trim()
             }).join('\n')
           }),
@@ -141,7 +138,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 }
 handler.command = /^(menu|help)$/i
 
-handler.exp = 3
+handler.exp = false
 
 export default handler
 
