@@ -129,7 +129,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './src/avatar_contact.png')
-    conn.sendHydrated(m.chat, text.trim(), wm, '99999999999999999999', instagram, 'Instagram', null, null, [
+    conn.sendHydrated(m.chat, text.trim(), wm, pp, instagram, 'Instagram', null, null, [
       ['Donate', '.donasi'],
       [null, null],
       [null, null]
