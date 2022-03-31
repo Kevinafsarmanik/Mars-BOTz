@@ -1,9 +1,8 @@
 import fetch from 'node-fetch'
-let handler = async (m, { conn, usedPrefix, command }) => {
-    let res = (`https://api.lolhuman.xyz/api/meme/darkjoke?apikey=rey2k22`)
-    await conn.sendButton(m.chat, 'Nih banh', wm, res, [
-    ['Next', `${usedPrefix+command}`]
-], m)
+let handler = async (m, { conn, usedPrefix }) => {
+    let url = global.API('xteam', '/randomimage/meme', {}, 'APIKEY')
+    if (!url.ok) throw eror
+    await conn.sendButton(m.chat, 'Nih banh', wm, url, [['Next', `${usedPrefix+command}`]], m, 0, { thumbnail: Buffer.alloc(url) })
 }
 handler.help = ['darkjoke']
 handler.tags = ['random']
