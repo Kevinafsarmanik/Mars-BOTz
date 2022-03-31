@@ -40,8 +40,7 @@ let handler = async (m, { conn }) => {
   await m.reply('_Testing speed..._')
   let neww = performance.now()
   let speed = neww - old
-  let txt = `
-Merespon dalam ${speed} millidetik
+  let txt = `Merespon dalam ${speed} millidetik
 
 💬 Status :
 - *${groupsIn.length}* Group Chats
