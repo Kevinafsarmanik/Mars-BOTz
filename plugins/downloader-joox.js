@@ -2,7 +2,6 @@ import fetch from 'node-fetch'
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `Pengunaan:\n${usedPrefix + command} <teks>\n\nContoh:\n${usedPrefix + command} akad`
-    if (isUrl(text)) throw `uhm.. judul kak bukan pake url\n\ncontoh:\n${usedPrefix + command} akad`
 
     let res = await fetch(API('chapi', '/api/download/jooxdl', { search: text }, 'apikey'))
     if (!res.ok) throw await `${res.status} ${res.statusText}`
@@ -24,7 +23,3 @@ handler.tags = ['downloader']
 handler.command = /^joox$/i
 
 export default handler
-
-const isUrl = (text) => {
-    return text.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
-}
