@@ -2,8 +2,7 @@ import axios from 'axios'
 
 let handler = async (m, { conn, usedPrefix, command }) => {
     let res = await axios.get(API('lolhuman', '/api/cerpen', {}, 'apikey'))
-    let json = await res.json()
-    if (!json.status) throw json
+    let json = res.data
     let hasil = `
 ${json.result.title}
 ${json.result.creator}
