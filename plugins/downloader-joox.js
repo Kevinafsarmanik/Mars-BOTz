@@ -7,7 +7,6 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let json = await res.json()
     if (res.status !== 200) throw await res.text()
     if (!json.status) throw json
-    let thumb = await (await fetch(json.result.thumb)).buffer()
     let pesan = `
 Judul: ${json.result.judul}
 Artis: ${json.result.artist}
@@ -15,7 +14,7 @@ Album: ${json.result.album}
 Ukuran File: ${json.result.filesize}
 Durasi: ${json.result.duration}
 `.trim()
-    conn.sendFile(m.chat, thumb, 'eror.jpg', pesan, m)
+    conn.sendFile(m.chat, json.result.thumb, 'eror.jpg', pesan, m)
     conn.sendFile(m.chat, json.result.mp3_url, 'error.mp3', '', m, 0, { asDocument: db.data.chats[m.chat].useDocument, mimetype: 'audio/mpeg' })
 }
 handler.help = ['joox'].map(v => v + ' <judul>')
