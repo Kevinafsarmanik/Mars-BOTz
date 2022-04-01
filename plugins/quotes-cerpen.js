@@ -8,7 +8,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     let hasil = `
 ${json.result.title}
 ${json.result.creator}
-`.trim()
+`
     conn.sendButton(m.chat, hasil, json.result.cerpen, [
     ['Next', `${usedPrefix + command}`]
 ], m)
