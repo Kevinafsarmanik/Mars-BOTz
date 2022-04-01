@@ -3,7 +3,7 @@ import fetch from 'node-fetch'
 let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `Pengunaan:\n${usedPrefix + command} <teks>\n\nContoh:\n${usedPrefix + command} akad`
 
-    let res = await fetch(API('chapi', '/api/download/jooxdl', { search: text }, 'apikey'))
+    let res = await fetch(API('chipa', '/api/download/jooxdl', { search: text }, 'apikey'))
     if (!res.ok) throw await `${res.status} ${res.statusText}`
     let json = await res.json()
     if (!json.status) throw json
