@@ -17,7 +17,7 @@ global.APIs = { // API Prefix
   xteam: 'https://api.xteam.xyz',
   lolhuman: 'https://api.lolhuman.xyz',
   amel: 'https://melcanz.com',
-  neoxr: 'https://api.neoxr.eu.org'
+  neoxr: 'https://api.neoxr.eu.org',
   chipa: 'https://api.chipa.xyz'
 }
 global.APIKeys = { // APIKey Here
