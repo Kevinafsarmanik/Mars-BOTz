@@ -16,7 +16,6 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         let jisin = await res.json()
         let stiker = await sticker(false, "https://api.telegram.org/file/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/" + jisin.result.file_path, packname, author)
         await conn.sendFile(m.chat, stiker, '', '', 0, 0, { asSticker: true })
-        await delay(1500)
     }
     m.reply('_*Selesai*_')
 }
@@ -24,8 +23,6 @@ handler.help = ['stikertele <url>']
 handler.tags = ['sticker']
 handler.command = /^(stickertele|stele|stikertele)$/i
 
-handler.limit = false
+handler.limit = true
 
 export default handler
-
-const delay = time => new Promise(res => setTimeout(res, time))
