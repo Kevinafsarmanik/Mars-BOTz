@@ -5,16 +5,14 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
     if (!text) throw 'Masukkan nama daerah\n\nContoh: .jadwalsholat surabaya'
     let json = res.data
     m.reply(`
-*JADWAL SHOLAT*
-
-Kota: ${json.result.kota}
-Tanggal: ${json.result.tanggal}
-Subuh: ${json.result.subuh}
-Dzuhur: ${json.result.dzuhur}
-Ashar: ${json.result.ashar}
-Maghrib: ${json.result.maghrib}
-Isyak: ${json.result.isya}
-`.trim())
+┌ 「 ${json.result.kota} 」
+├ • Tanggal: ${json.result.tanggal}
+├ • Subuh: ${json.result.subuh}
+├ • Dzuhur: ${json.result.dzuhur}
+├ • Azhar: ${json.result.ashar}
+├ • Maghrib: ${json.result.maghrib}
+├ • Isya: ${json.result.isya}
+└───`.trim())
 }
 handler.help = ['salat <daerah>']
 handler.tags = ['quran']
