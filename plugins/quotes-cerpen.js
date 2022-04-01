@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     let res = await axios.get(API('lolhuman', '/api/cerpen', {}, 'apikey'))
 
     let json = res.data
-    conn.sendButton(m.chat, json.result.title\n + json.result.creator, json.result.cerpen, [
+    conn.sendButton(m.chat, json.result.title, json.result.cerpen, [
     ['Next', `${usedPrefix + command}`]
 ], m)
 }
