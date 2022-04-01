@@ -1,11 +1,19 @@
-import { jadwalsholat } from '@bochilteam/scraper'
-let handler = async (m, { text, usedPrefix, command }) => {
-    if (!text) throw `Use example ${usedPrefix}${command} semarang`
-    const res = await jadwalsholat(text)
-    m.reply(`
-Jadwal Sholat *${text}*
+import axios from 'axios'
 
-${Object.entries(res.today).map(([name, data]) => `*Sholat ${name}:* ${data}`).join('\n').trim()}
+let handler = async (m, { conn, usedPrefix, command, text }) => {
+    let res = await axios.get(API('chipa', '/api/jadwal_sholat', { kota: text }, 'apikey'))
+    if (!text) throw 'Masukkan nama daerah\n\nContoh: .jadwalsholat surabaya'
+    let json = res.data
+    m.reply(`
+*JADWAL SHOLAT*
+
+Kota: ${json.result.kota}
+Tanggal: ${json.result.tanggal}
+Subuh: ${json.result.subuh}
+Dzuhur: ${json.result.dzuhur}
+Ashar: ${json.result.ashar}
+Maghrib: ${json.result.maghrib}
+Isyak: ${json.result.isya}
 `.trim())
 }
 handler.help = ['salat <daerah>']
