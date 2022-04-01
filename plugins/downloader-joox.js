@@ -4,6 +4,10 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     if (!text) throw `Pengunaan:\n${usedPrefix + command} <teks>\n\nContoh:\n${usedPrefix + command} akad`
 
     let res = await fetch(API('chipa', '/api/download/jooxdl', { search: text }, 'apikey')
+    let json = await res.json()
+    if (res.status !== 200) throw await res.text()
+    if (!json.status) throw json
+    let thumb = await (await fetch(json.result.thumb)).buffer()
     let pesan = `
 Judul: ${json.result.judul}
 Artis: ${json.result.artist}
