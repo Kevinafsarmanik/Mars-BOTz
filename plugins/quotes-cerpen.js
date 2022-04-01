@@ -2,7 +2,6 @@ import axios from 'axios'
 
 let handler = async (m, { conn, usedPrefix, command }) => {
     let res = await axios.get(API('lolhuman', '/api/cerpen', {}, 'apikey'))
-    if (!res.ok) throw eror
     let json = await res.json()
     if (!json.status) throw json
     let hasil = `
