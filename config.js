@@ -18,13 +18,15 @@ global.APIs = { // API Prefix
   lolhuman: 'https://api.lolhuman.xyz',
   amel: 'https://melcanz.com',
   neoxr: 'https://api.neoxr.eu.org'
+  chipa: 'https://api.chipa.xyz'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'NezukoTachibana281207',
   'https://api.lolhuman.xyz': 'rey2k22',
   'https://melcanz.com': '7V9fFCWc',
-  'https://api.neoxr.eu.org': 'yourkey'
+  'https://api.neoxr.eu.org': 'yourkey',
+  'https://api.chipa.xyz': '3Q0SJVZXXZ7IFS6XK0JTCGZS'
 }
 
 // Sticker WM
