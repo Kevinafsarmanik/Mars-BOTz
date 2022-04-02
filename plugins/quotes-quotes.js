@@ -6,9 +6,9 @@ let handler = async (m, { conn, usedPrefix, command }) => {
     let hasil = `
 _${json.result.by}_
 
-{json.result.quote}
+${json.result.quote}
 `.trim()
-    conn.sendButton(m.chat, hasil, wm, fla + 'quotes', [
+    conn.sendHydrated(m.chat, instagram, 'Instagram', null, null, hasil, wm, fla + 'quotes', [
     ['Next', `${usedPrefix+command}`]
 ], m)
 }
