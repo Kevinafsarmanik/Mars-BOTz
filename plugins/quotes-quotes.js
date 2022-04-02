@@ -8,7 +8,7 @@ _${json.result.by}_
 
 {json.result.quote}
 `.trim()
-    conn.sendButton(m.chat, hasil, wm, fla + 'quotes' [
+    conn.sendButton(m.chat, hasil, wm, fla + 'quotes', [
     ['Next', `${usedPrefix+command}`]
 ], m)
 }
