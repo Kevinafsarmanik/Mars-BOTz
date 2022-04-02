@@ -7,7 +7,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let json = await res.json()
     if (res.status !== 200) throw await res.text()
     if (!json.status) throw json
-    let { album, album_url download_url, singers, songname, filesize, duration } = json.result
+    let { album, album_url, download_url, singers, songname, filesize, duration } = json.result
     let pesan = `
 ❖ Title: *${songname}*
 ❖ Artists: *${singers}*
