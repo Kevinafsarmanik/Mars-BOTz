@@ -3,9 +3,12 @@ import axios from 'axios'
 let handler = async (m, { conn, usedPrefix, command }) => {
     let res = await axios.get(API('lolhuman', '/api/random/quotes', {}, 'apikey'))
     let json = res.data
-    let hasil = `_${json.result.by}_\n\n${json.result.quote}
+    let hasil = `
+_${json.result.by}_
+
+{json.result.quote}
 `.trim()
-    conn.sendButton(m.chat, hasil, wm, [
+    conn.sendButton(m.chat, hasil, wm, fla + 'quotes' [
     ['Next', `${usedPrefix+command}`]
 ], m)
 }
