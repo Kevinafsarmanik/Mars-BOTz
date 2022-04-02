@@ -7,12 +7,13 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let json = await res.json()
     if (res.status !== 200) throw await res.text()
     if (!json.status) throw json
+    let { song, singer, album, date, duration } = json.result
     let pesan = `
-❖ Title: *${json.result.info.song}*
-❖ Artists: *${json.result.info.singer}*
-❖ Album: *${json.result.info.album}*
-❖ Duration: *${json.result.info.duration}*
-❖ Uploaded: *${json.result.info.date}*
+❖ Title: *${info.song}*
+❖ Artists: *${info.singer}*
+❖ Album: *${info.album}*
+❖ Duration: *${info.duration}*
+❖ Uploaded: *${info.date}*
 `.trim()
     conn.sendFile(m.chat, json.result.image, 'eror.jpg', pesan, m)
     conn.sendMessage(m.chat, { document: { url: json.result.audio.link}, mimetype: 'audio/mpeg', fileName: `${json.result.info.song}.mp3`}, {quoted: m})
