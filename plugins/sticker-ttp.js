@@ -2,7 +2,7 @@ import { sticker } from '../lib/sticker.js'
 
 let handler = async (m, { conn, text }) => {
     let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
-    let stiker = await sticker(null, `https://api.lolhuman.xyz/api/ttp?apikey=rey2k22&text=${text}`, global.packname, global.author)
+    let stiker = await sticker(null, API('lolhuman', '/api/ttp', { text: teks }, 'apikey'), packname, author)
     if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
     throw stiker.toString()
 }
