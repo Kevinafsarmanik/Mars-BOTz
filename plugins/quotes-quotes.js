@@ -8,7 +8,7 @@ _${json.result.by}_
 
 ${json.result.quote}
 `.trim()
-    conn.sendHydrated(m.chat, instagram, 'Instagram', null, null, hasil, wm, fla + 'quotes', [
+    conn.sendHydrated(m.chat, hasil, wm, fla + 'quotes', instagram, 'Instagram', null, null, [
     ['Next', `${usedPrefix+command}`]
 ], m)
 }
