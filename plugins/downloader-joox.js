@@ -16,7 +16,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 ❖ Size: *${filesize}*
 `.trim()
     conn.sendFile(m.chat, album_url, 'eror.jpg', pesan, m)
-    conn.sendMessage(m.chat, { document: { url: downloadurl_url}, mimetype: 'audio/mpeg', fileName: `${songname}.mp3`}, {quoted: m})
+    conn.sendMessage(m.chat, { document: { url: download_url}, mimetype: 'audio/mpeg', fileName: `${songname}.mp3`}, {quoted: m})
 }
 handler.help = ['joox'].map(v => v + ' <judul>')
 handler.tags = ['downloader']
