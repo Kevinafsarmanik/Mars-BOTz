@@ -2,7 +2,6 @@ import fetch from 'node-fetch'
 
 let handler = async (m, { conn, command, text, usedPrefix }) => {
     if (!text) throw `uhm.. urlnya mana?\n\npenggunaan:\n${usedPrefix + command} url\ncontoh:\n${usedPrefix + command} https://twitter.com/gofoodindonesia/status/1229369819511709697`
-    if (!/https?:\/\/(www\.|v(t|m)\.|t\.)?tiktok\.com/i.test(text)) throw `url salah!`
     let res = await fetch(API('hardianto', '/api/download/twitter', { url: text }, 'apikey'))
     if (!res.ok) throw eror
     let json = await res.json()
