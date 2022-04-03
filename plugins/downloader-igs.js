@@ -9,7 +9,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   var anu = await res.json()
   var anuku = anu.medias
   for (let { url, fileType } of anuku) 
-  conn.sendFile(m.chat, url, 'ig' + (fileType == 'video' ? '.mp4' : '.jpg'), 'Nih banh', m)
+  await conn.sendFile(m.chat, url, 'ig' + (fileType == 'video' ? '.mp4' : '.jpg'), 'Nih banh', m)
   await delay(1500)
 }
 handler.help = ['igstory'].map(v => v + ' <username>')
