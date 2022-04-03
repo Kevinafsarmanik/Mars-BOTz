@@ -6,7 +6,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
     if (!res.ok) throw eror
     let json = await res.json()
     let { SD, desc } = json
-    await conn.sendFile(m.chat, SD, 'twitter.mp4', desc, m, 0, { thumbnail: await(await fetch(SD)).buffer() })
+    await conn.sendFile(m.chat, SD, null, desc, m)
 }
 handler.help = ['twitter'].map(v => v + ' <url>')
 handler.tags = ['downloader']
