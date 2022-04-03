@@ -5,8 +5,8 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
     let res = await fetch(API('hardianto', '/api/download/twitter', { url: text }, 'apikey'))
     if (!res.ok) throw eror
     let json = await res.json()
-    if (!json.status) throw json
-    await conn.sendFile(m.chat, json.HD, 'twitter.mp4', json.desc, m)
+    let { SD, desc } = json
+    await conn.sendFile(m.chat, SD, 'twitter.mp4', desc, m, 0, { thumbnail: await(await fetch(SD)).buffer() })
 }
 handler.help = ['twitter'].map(v => v + ' <url>')
 handler.tags = ['downloader']
