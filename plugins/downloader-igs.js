@@ -7,8 +7,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   }, 'apikey'))
   var anu = await res.json()
   var anuku = anu.medias
-  for (let { url } of anuku) 
-  conn.sendFile(m.chat, url, 'ig' + (type == 'video' ? '.mp4' : '.jpg'), 'nih', m)
+  for (let { url, fileType } of anuku) 
+  conn.sendFile(m.chat, url, 'ig' + (fileType == 'video' ? '.mp4' : '.jpg'), 'nih', m)
 }
 handler.help = ['igstory'].map(v => v + ' <username>')
 handler.tags = ['downloader']
