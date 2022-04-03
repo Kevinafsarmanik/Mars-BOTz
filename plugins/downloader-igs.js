@@ -1,7 +1,6 @@
 let handler = async (m, { usedPrefix, command, conn, args }) => {
   if (!args[0]) throw `Gunakan format: ${usedPrefix}${command} instagram`
   let res = await igstory(args[0])
-  if (!res.length) throw 'User no have story!'
   for (let { url, type } of res)
     conn.sendFile(m.chat, url, 'ig' + (type == 'video' ? '.mp4' : '.jpg'), `
 @${args[0]}
