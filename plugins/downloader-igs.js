@@ -6,8 +6,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   let res = await fetch(API('hardianto', '/api/download/igstory', {
     username: args[0]
   }, 'apikey'))
-  let anu = await res.json()
-  let anuku = anu.medias
+  var anu = await res.json()
+  var anuku = anu.medias
   for (let { url, fileType } of anuku) 
   await delay(1500)
   conn.sendFile(m.chat, url, 'ig' + (fileType == 'video' ? '.mp4' : '.jpg'), 'Nih banh', m)
