@@ -10,6 +10,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   var anuku = anu.medias
   for (let { url, fileType } of anuku) 
   conn.sendFile(m.chat, url, 'ig' + (fileType == 'video' ? '.mp4' : '.jpg'), 'Nih banh', m)
+  await delay(1500)
 }
 handler.help = ['igstory'].map(v => v + ' <username>')
 handler.tags = ['downloader']
@@ -18,3 +19,5 @@ handler.command = /^(igs(tory)?)$/i
 handler.limit = true
 
 export default handler
+
+const delay = time => new Promise(res => setTimeout(res, time))
