@@ -14,9 +14,9 @@ handler.command = /^(igs(tory)?)$/i
 
 export default handler
 
-export axios from 'axios'
-export cheerio from 'cheerio'
-export fetch from 'node-fetch'
+import axios from 'axios'
+import cheerio from 'cheerio'
+import fetch from 'node-fetch'
 async function igstory(username) {
   username = username.replace(/https:\/\/instagram.com\//g, '')
   let { data } = await axios.get(`https://www.instadownloader.org/data.php?username=${username}&t=${new Date * 1}`)
