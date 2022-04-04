@@ -8,15 +8,16 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let json = await res.json()
     if (res.status !== 200) throw await res.text()
     if (!json.status) throw json
+    let { song, singer, album, duration, date } = json.result.info[0]
     let pesan = `
-❖ Title : *${json.result.info.song}*
-❖ Artists : *${json.result.info.singer}*
-❖ Album : *${json.result.info.album}*
-❖ Duration : *${json.result.info.duration}*
-❖ Date : *${json.result.info.date}*
+❖ Title : *${song}*
+❖ Artists : *${singer}*
+❖ Album : *${album}*
+❖ Duration : *${duration}*
+❖ Date : *${date}*
 `.trim()
     conn.sendFile(m.chat, json.result.image, 'eror.jpg', pesan, m)
-    conn.sendMessage(m.chat, { document: { url: json.result.audio[0].link}, mimetype: 'audio/mpeg', fileName: `${json.result.info.song}.mp3`}, {quoted: m})
+    conn.sendMessage(m.chat, { document: { url: json.result.audio[0].link}, mimetype: 'audio/mpeg', fileName: `${song}.mp3`}, {quoted: m})
 }
 handler.help = ['joox'].map(v => v + ' <judul>')
 handler.tags = ['downloader']
