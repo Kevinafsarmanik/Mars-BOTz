@@ -8,7 +8,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let json = await res.json()
     if (res.status !== 200) throw await res.text()
     if (!json.status) throw json
-    let { song, singer, album, duration, date } = json.result.info[0]
+    let { song, singer, album, duration, date } = json.result.info
     let pesan = `
 ❖ Title : *${song}*
 ❖ Artists : *${singer}*
