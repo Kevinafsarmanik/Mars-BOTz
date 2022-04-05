@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url'
 global.owner = [
   ['0'],
   ['0'],
-  ['6283832492541', 'RHns', false]
+  ['6281297084552', 'Owner Bot', false]
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
 global.mods = [] // Want some help?
@@ -32,13 +32,13 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'Made by'
-global.author = 'Mars BOTz'
+global.packname = 'Sticker By'
+global.author = 'WhatsApp Bot Simple'
 
-global.wm = 'Mars BOTz by RHns'
-global.eror = 'sedang sibukk'
-global.instagram = 'https://instagram.com/bgsrhnsh'
-global.media = 'https://telegra.ph/file/4797be2e521fc002d70e2.jpg'
+global.wm = 'WhatsApp Bot Simple By ByuTeam'
+global.eror = 'Maaf Server Sedang Eror!'
+global.instagram = 'https://instagram.com/imbyu_ofc'
+global.media = 'https://telegra.ph/file/ea97b54ada797c9ca5fa8.jpg'
 global.fla = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&fillTextType=1&fillTextPattern=Warning!&fillColor1Color=%23f2aa4c&fillColor2Color=%23f2aa4c&fillColor3Color=%23f2aa4c&fillColor4Color=%23f2aa4c&fillColor5Color=%23f2aa4c&fillColor6Color=%23f2aa4c&fillColor7Color=%23f2aa4c&fillColor8Color=%23f2aa4c&fillColor9Color=%23f2aa4c&fillColor10Color=%23f2aa4c&fillOutlineColor=%23f2aa4c&fillOutline2Color=%23f2aa4c&backgroundColor=%23101820&text='
 
 global.multiplier = 69 // The higher, The harder levelup
