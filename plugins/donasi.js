@@ -1,11 +1,11 @@
 let handler = async (m, { conn, command }) => conn.sendHydrated(m.chat, `
 ┌ 「 Donasi • Pulsa 」
-│ • XL: [087833996829]
-│ • Axis: [083805870343]
+│ • XL: [TANYA KEPIN]
+│ • Axis: [TANYA KEPIN]
 └──
 
-┌ 「 Donasi • Non Pulsa 」
-│ • Dana: [081297084552]
+┌ 「 Donasi • TANYA KEPIN 」
+│ • Dana: [TANYA KEPIN]
 └──`.trim(), wm, fla + 'donasi', instagram, 'Instagram', null, null, [['Back To Menu', '.menu']], m)
 handler.help = ['donasi']
 handler.tags = ['info']
